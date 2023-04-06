@@ -37,24 +37,20 @@ Fraction simplify(Fraction f) {
 
 int main() {
     int n;
-    cout << "请输入分数个数：";
     cin >> n;
 
     Fraction sum = { 0, 1 };  
-
-    // 读取n个分数并求和
+    
     for (int i = 0; i < n; i++) {
-        Fraction f;
-        cout << "请输入第" << i + 1 << "个分数（格式为 分子/分母）：";
+        Fraction f；
         scanf_s("%d/%d", &f.numerator, &f.denominator);
-        // 将当前分数加入总和
         sum.numerator = sum.numerator * f.denominator + f.numerator * sum.denominator;
         sum.denominator *= f.denominator;
     }
 
     
     Fraction result = simplify(sum);
-    cout << "分数之和为：" << result.numerator << "/" << result.denominator << endl;
+    cout << result.numerator << "/" << result.denominator << endl;
 
     return 0;
 }
