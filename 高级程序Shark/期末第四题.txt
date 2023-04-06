@@ -2,14 +2,11 @@
 #include <cmath>
 
 using namespace std;
-
-// 定义一个分数结构体
 struct Fraction {
     int numerator;      // 分子
     int denominator;    // 分母
 };
 
-// 求最大公约数
 int gcd(int a, int b) {
     if (a % b == 0) {
         return b;
@@ -19,17 +16,17 @@ int gcd(int a, int b) {
     }
 }
 
-// 化简分数
+
 Fraction simplify(Fraction f) {
-    // 如果分子为0，则分母为1
+   
     if (f.numerator == 0) {
         f.denominator = 1;
     }
-    // 如果分母为1，则不需要化简
+   
     else if (f.denominator == 1) {
         // do nothing
     }
-    // 否则将分数化简为最简分数
+    
     else {
         int k = gcd(abs(f.numerator), abs(f.denominator));
         f.numerator /= k;
@@ -40,8 +37,6 @@ Fraction simplify(Fraction f) {
 
 int main() {
     int n;
-
-    // 读取输入的分数个数
     cout << "请输入分数个数：";
     cin >> n;
 
