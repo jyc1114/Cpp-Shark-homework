@@ -1,0 +1,71 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <bitset>
+#include <stack>
+#include <sstream>
+#include <iomanip>
+
+using namespace std;
+
+
+int main() 
+{
+	int n;
+	int a, b;
+	cin >> n;
+	b = n % 10;
+	a = n / 10;
+
+	switch (a) {
+	case 0:cout << "Children"; break;
+	case 1:
+		switch (b) {
+		case 0:cout << "Children"; break;
+		default:cout << "Teenagers";
+			
+		}
+		break;
+	case 2:
+		switch (b) {
+		case 0:cout << "Teenagers"; break;
+		default:cout << "Youth";
+			
+		}
+		break;
+	case 3:cout << "Youth"; break;
+	case 4:
+		switch (b) {
+		case 0:cout << "Youth"; break;
+		default:cout << "Middle-aged";
+			
+		}
+		break;
+	case 5:
+		switch (b) {
+		case 0:cout << "Middle_aged"; break;
+		default:cout << "Elderly";
+		
+		}
+		break;
+	case 6:case 7:
+		cout << "Elderly"; break;
+	case 8:
+		switch (b) {
+		case 0:cout << "Elderly"; break;
+		default:cout << "Old man";
+			
+		}
+		break;
+	case 9:case 10:
+		cout << "Old man"; break;
+
+
+
+
+
+	}
+
+
+	return 0;
+}

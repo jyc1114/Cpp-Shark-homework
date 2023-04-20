@@ -1,0 +1,32 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <bitset>
+#include <stack>
+#include <sstream>
+#include <iomanip>
+
+using namespace std;
+
+
+
+int main() 
+{
+	int n;
+	cin >> n;
+	
+	switch (n) {
+	
+	case 1:cout << "Spring"; break;
+	case 2:cout << "Summer"; break;
+	case 3:cout << "Fall"; break;
+	case 4:cout << "Winter"; break;
+	
+	default:cout << "Null"; break;
+
+	}
+
+
+
+	return 0;
+}

@@ -1,0 +1,32 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <bitset>
+#include <stack>
+#include <sstream>
+#include <iomanip>
+
+using namespace std;
+
+
+
+int main() 
+{
+	unsigned int n, a;
+	cin >> n;
+	a = n / 10;
+
+	switch (a)
+	{
+	case 0:case 1:case 2: case 3:case 4: case 5:
+		cout << "E"; break;
+	case 6:cout << "D"; break;
+	case 7:cout << "C"; break;
+	case 8:cout << "B"; break;
+	case 9:case 10:
+		cout << "A"; break;
+	default:cout << "范围错误"; break;
+	}
+
+	return 0;
+}
