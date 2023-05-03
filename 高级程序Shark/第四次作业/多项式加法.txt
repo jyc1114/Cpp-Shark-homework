@@ -1,0 +1,127 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <bitset>
+#include <stack>
+#include <sstream>
+#include <iomanip>
+#include <numeric>
+
+
+using namespace std;
+
+
+struct PolyNode {
+    int coef;   // 系数
+    int expo;   // 指数
+    PolyNode* next;  // 指向下一个节点的指针
+};
+
+typedef PolyNode* Poly;  // 定义多项式类型
+
+// 创建多项式
+void createPoly(Poly& poly) {
+    int coef, expo;
+    PolyNode* p = poly;
+    while (true) {
+        cin >> expo >> coef;
+        if (expo == 0&&coef==0){
+            break;
+        }
+     PolyNode* newNode = new PolyNode();
+     newNode->coef = coef;
+     newNode->expo = expo;
+     newNode->next = NULL;
+     p->next = newNode;
+     p = p->next;
+    
+    }
+}
+
+// 多项式加法
+void addPoly(Poly& poly1, Poly& poly2, Poly& result) {
+    PolyNode* p = poly1->next;
+    PolyNode* q = poly2->next;
+    PolyNode* r = result;
+    while (p && q) {
+        if (p->expo == q->expo) {
+            int sum = p->coef + q->coef;
+            if (sum != 0) {
+                PolyNode* newNode = new PolyNode();
+                newNode->coef = sum;
+                newNode->expo = p->expo;
+                r->next = newNode;
+                r = r->next;
+            }
+            p = p->next;
+            q = q->next;
+        }
+        else if (p->expo > q->expo) {
+            PolyNode* newNode = new PolyNode();
+            newNode->coef = p->coef;
+            newNode->expo = p->expo;
+            r->next = newNode;
+            r = r->next;
+            p = p->next;
+        }
+        else {
+            PolyNode* newNode = new PolyNode();
+            newNode->coef = q->coef;
+            newNode->expo = q->expo;
+            r->next = newNode;
+            r = r->next;
+            q = q->next;
+        }
+    }
+
+    while (p) {
+        PolyNode* newNode = new PolyNode();
+        newNode->coef = p->coef;
+        newNode->expo = p->expo;
+        r->next = newNode;
+        r = r->next;
+        p = p->next;
+    }
+
+    while (q) {
+        PolyNode* newNode = new PolyNode();
+        newNode->coef = q->coef;
+        newNode->expo = q->expo;
+        r->next = newNode;
+        r = r->next;
+        q = q->next;
+    }
+}
+
+// 输出多项式
+void printPoly(Poly poly) {
+    PolyNode* p = poly->next;
+    while (p) {
+        if (p->expo == 0) {
+            cout << p->coef;
+        }
+        if (p->expo == 1) {
+            cout << p->coef << "x" << "+";
+        }
+        else {
+            cout << p->coef << "x" << p->expo << "+";
+        }
+        p = p->next;
+    }
+    cout << endl;
+}
+
+int main() {
+    Poly poly1 = new PolyNode();    
+    Poly poly2 = new PolyNode();    
+    Poly result = new PolyNode();   
+
+    createPoly(poly1);
+    createPoly(poly2);
+
+    addPoly(poly1, poly2, result);
+    
+    printPoly(result);
+
+    return 0;
+}

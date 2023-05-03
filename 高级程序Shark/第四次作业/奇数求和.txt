@@ -1,0 +1,54 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <bitset>
+#include <stack>
+#include <sstream>
+#include <iomanip>
+#include <numeric>
+
+
+using namespace std;
+
+class Sum {
+public:
+	int even(unsigned int n);
+
+private:
+	int num;
+  };
+
+int Sum::even(unsigned int n) {
+	if (n % 2 == 0)
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+
+}
+
+int main() 
+{
+	unsigned int n;
+	
+	vector<int> sum;
+	Sum evensum;
+	
+	do {
+		cin >> n;  
+		if (evensum.even(n) == 0)
+		{
+			sum.push_back(n);
+		}
+	} while (n > 0);
+
+	
+      int sum1 = accumulate(sum.begin(), sum.end(), 0);
+	cout << sum1 << endl;
+
+
+	return 0;
+}

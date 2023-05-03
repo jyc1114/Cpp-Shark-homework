@@ -1,0 +1,63 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <bitset>
+#include <stack>
+#include <sstream>
+#include <iomanip>
+#include <numeric>
+
+
+using namespace std;
+
+struct Fraction {
+	int fenzi;      
+	int fenmu;    
+};
+
+
+int qiuyu(int a, int b)
+{
+	a *= 10;
+	a %= b;
+	return(a * 10 / b);
+}
+
+
+int main() 
+{
+	vector<long> num;
+	Fraction n = { 0,1 };
+	scanf_s("%d/%d", &n.fenzi, &n.fenmu);
+
+	int a = n.fenzi; int b = n.fenmu;
+	int flag = 0;
+	
+	do
+	{
+		num.push_back(a * 10 / b);
+		a *= 10;
+		a %= b;
+		flag++;
+
+	} while (a > 0 && flag < 200);
+
+	cout << "0.";
+	int len = num.size();
+	if (len > 200)
+	{
+		for (int i = 0; i < 200; i++)
+		{
+			cout << num[i];
+		}
+	}
+	else
+	{
+		for (auto i : num)
+		{
+			cout << i;
+		}
+	}
+
+	return 0;
+}
