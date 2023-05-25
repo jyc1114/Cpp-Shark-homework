@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <bitset>
+#include <stack>
+#include <sstream>
+#include <iomanip>
+#include <numeric>
+#include <algorithm>
+
+
+using namespace std;
+
+int Mystr(string str1, string str2)
+{
+	return str1.find(str2);
+}
+
+int main()
+{
+	string str1, str2;
+
+	getline(cin, str1);
+	getline(cin, str2);
+
+
+	if ((int)str1.find(str2) < 0)
+	{
+		cout << (int)str1.find(str2);
+	}
+	else 
+	{
+		cout << Mystr(str1, str2);
+	}
+
+
+	return 0;
+}
